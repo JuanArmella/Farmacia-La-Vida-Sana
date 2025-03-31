@@ -27,8 +27,8 @@ public class UsuarioDAO {
     //Metodo login 
     public Usuario loginUsuario(String user, String pass) {
         String query = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?; ";
-        //Usuario usuario = new Usuario();
-        Usuario usuario = null;
+        Usuario usuario = new Usuario();
+        //Usuario usuario = null;
         try {
             con = cn.conectarBD();
             pst = con.prepareStatement(query);

@@ -229,6 +229,11 @@ public class Menu extends javax.swing.JFrame {
         MenuItem_CerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         MenuItem_CerrarSesion.setText("Cerrar Sesion");
         MenuItem_CerrarSesion.setPreferredSize(new java.awt.Dimension(160, 30));
+        MenuItem_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItem_CerrarSesionActionPerformed(evt);
+            }
+        });
         jMenu8.add(MenuItem_CerrarSesion);
 
         jMenuBar1.add(jMenu8);
@@ -259,6 +264,10 @@ public class Menu extends javax.swing.JFrame {
     private void MenuItem_GestionarCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_GestionarCategoriasActionPerformed
         
     }//GEN-LAST:event_MenuItem_GestionarCategoriasActionPerformed
+
+    private void MenuItem_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItem_CerrarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuItem_CerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments

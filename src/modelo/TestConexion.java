@@ -12,9 +12,9 @@ package modelo;
 public class TestConexion {
     public static void main(String[] args) {
         ConexionBD conexion = new ConexionBD();
-        conexion.ConectarBD();
+        conexion.conectarBD();
         System.out.println("Conexión exitosa");
-        conexion.DesconectarBD();
+        conexion.desconectarBD();
     }
 }
 

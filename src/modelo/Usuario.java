@@ -1,4 +1,3 @@
-
 package modelo;
 
 /**
@@ -6,22 +5,33 @@ package modelo;
  * @author migue
  */
 public class Usuario {
-    
-    //int IdUsuario;
-    String Usuario;
-    String Contraseña;
-    //int IdRol;
-    //int IdEmpleado;
-    
-    public Usuario(){
-        //IdUsuario  = 0;
-        Usuario = "";
-        Contraseña = "";
-        //IdRol= 0;
-        //IdEmpleado= 0;
+
+    private int IdUsuario;
+    private String Usuario;
+    private String Contraseña;
+    private int IdRol;
+    private int IdEmpleado;
+
+    public Usuario() {
+
     }
 
-    
+    public Usuario(int IdUsuario, String Usuario, String Contraseña, int IdRol, int IdEmpleado) {
+        this.IdUsuario = IdUsuario;
+        this.Usuario = Usuario;
+        this.Contraseña = Contraseña;
+        this.IdRol = IdRol;
+        this.IdEmpleado = IdEmpleado;
+    }
+
+    public int getIdUsuario() {
+        return IdUsuario;
+    }
+
+    public void setIdUsuario(int IdUsuario) {
+        this.IdUsuario = IdUsuario;
+    }
+
     public String getUsuario() {
         return Usuario;
     }
@@ -37,5 +47,21 @@ public class Usuario {
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-    
+
+    public int getIdRol() {
+        return IdRol;
+    }
+
+    public void setIdRol(int IdRol) {
+        this.IdRol = IdRol;
+    }
+
+    public int getIdEmpleado() {
+        return IdEmpleado;
+    }
+
+    public void setIdEmpleado(int IdEmpleado) {
+        this.IdEmpleado = IdEmpleado;
+    }
+
 }

@@ -1,11 +1,8 @@
-
 package modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -13,48 +10,34 @@ import java.sql.Statement;
  */
 public class ConexionBD {
 
-    public static final String URL
-            = "jdbc:mysql://localhost:3306/bd_farmacia";
-    public static final String USER = "root";
-    public static final String CLAVE = "";
-    private Connection con;
+    private String URL = "jdbc:mysql://localhost:3306/bd_farmacia";
+    private String USER = "root";
+    private String CLAVE = "";
+    Connection con = null;
 
-    public void ConectarBD() {
-        con = null;
+    public Connection conectarBD() {
         try {
+            //Obtener valor del Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection(
-                    URL, USER, CLAVE);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            //Obtener la conexion
+            con = DriverManager.getConnection(URL, USER, CLAVE);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Ha ocurrido un ClassNotFoundException: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ha ocurrido un SQLException " + e.getMessage());
         }
+        return con;
     }
 
-    public void DesconectarBD() {
+    public void desconectarBD() {
         try {
-            if (con.isClosed() == false) {
+            if (con != null && !con.isClosed()) {
                 con.close();
+                System.out.println("Conexión cerrada exitosamente.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error al cerrar la conexión: " + e.getMessage());
         }
     }
 
-    public boolean ValidarUsuario(String usu, String pass) {
-        try {
-            Statement query = con.createStatement();
-            ResultSet resultado = query.executeQuery(
-                    "SELECT COUNT(*) AS TOTAL FROM "
-                    + " usuarios WHERE usuario='" + usu + "'"
-                    + " AND contrasena='" + pass + "'");
-            if (resultado.next()) {
-                if (resultado.getInt("TOTAL") > 0) {
-                    return true;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 }
